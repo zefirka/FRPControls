@@ -15,38 +15,51 @@
 
 <form>
   <div class="control" for="data">
-    <input type="text" name="username" id="username">
-    <label for="username">Юзернейм</label>
+    <div class="col gr1">
+      <input type="text" name="username" id="username">
+    </div>
+    <div class="col gr2">
+      <label for="username">Имя</label>
+    </div>
   </div>
   
   <div class="control" for="data">
-    <input type="text" name="password" id="password">
-    <label for="password">Пароль</label>
+    <div class="col gr1">
+      <input type="text" name="password" id="password">
+    </div>
+    <div class="col gr2">
+      <label for="password">Пароль</label>
+    </div>
   </div>
   
   <div class="control" for="data">
-    <input type="text" name="email" id="email">
-    <span class="hided">Скрыто</span>
-    <label for="email">Email</label>
+    <div class="col gr1">
+      <input type="text" name="email" id="email">
+    </div>
+    <div class="col gr2">
+      <label for="email">Email</label>
+    </div>
+    <div class="col gr3">
     <input type="checkbox" for="email" class="hide">
-    <label for="hide">Скрыть</label>
+      <label for="hide">Скрыть</label>
+    </div>
   </div>
   
   <div class="control" for="data">
-    <div class="cgroup">
-      <input type="checkbox" name="service1" class="service">
+    <div class="col">
+      <input type="checkbox" name="service1" class="service" data="services">
       <label>Космический десант</label> <br>
       
-        <input type="checkbox" name="service2" class="service">
+        <input type="checkbox" name="service2" class="service" data="services">
       <label>Шаолиньское кунг-фу</label> <br>
       
-        <input type="checkbox" name="service3" class="service">
+        <input type="checkbox" name="service3" class="service" data="services">
       <label>Человеческие жертвоприношения</label> <br>
       
-        <input type="checkbox" name="service4" class="service">
+        <input type="checkbox" name="service4" class="service" data="services">
       <label>500 тайтлов аниме</label>
     </div>
-    <div class="cgroup">
+    <div class="col gr2">
       <label class="glabel"> Услуги </label>
     </div>
   </div>

@@ -53,6 +53,19 @@ input[type="text"] {
   border: solid 2px #4D5E83;
   background-color: #ACB3C2;
   width: 140px;
-  height: 20px;
+  height: 18px;
   color: white;
+}
+
+.col{
+  display:inline-block;
+}
+.gr1{
+  width:160px;
+}
+.gr2{
+  width:60px;
+}
+.gr3{
+  width:100px;
 }

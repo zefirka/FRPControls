@@ -119,10 +119,7 @@ $(document).ready(function(){
             inputs = [], 
             inputsEntered = [], 
             inputsReady = [],
-            radioButtons = [],
-            inputsAvailabilityResponse = [],
-            inputsAvailabilityRequest = [],
-            inputAvailabale = [];
+            radioButtons = [];
 
         var submitButtonEnabled, 
             professions = {};
@@ -148,7 +145,7 @@ $(document).ready(function(){
         }
 
         //Ajax для инпута номер 0 (оно же "name")
-        inputsAvailabilityRequest[0] = inputs[0].toProperty().changes().filter(nonEmpty).skipDuplicates().throttle(300)
+        var inputsAvailabilityRequest = inputs[0].toProperty().changes().filter(nonEmpty).skipDuplicates().throttle(300)
             .map(function(user){
                 return { 
                     url : "check.php",
@@ -157,10 +154,17 @@ $(document).ready(function(){
                     data: ({"field" : user.target.attr("name"), "value" : user.value})
                 }
             });
-        inputsAvailabilityResponse[0] = inputsAvailabilityRequest[0].ajax();
-        inputAvailabale[0] = inputsAvailabilityResponse[0].toProperty("start");
-
-        inputAvailabale[0].onValue(function(x){
+        var inputsAvailabilityResponse = inputsAvailabilityRequest.ajax();
+        var inputAvailabale = inputsAvailabilityResponse.toProperty("start");
+        var submitAvailable = inputsAvailabilityResponse.toProperty("start").map(function(x){
+            if(x=="0\n"){
+                return true;
+            }else{
+                return false;
+            }
+        })
+        inputAvailabale.onValue(function(x){
+            console.log(x);
             if(x=="start"){
                 $(".ajax").hide();
             } else 
@@ -176,7 +180,7 @@ $(document).ready(function(){
         });
 
         ajaxVisible = inputsEntered[0].onValue(function(x){
-            if(!x){
+            if(!x){ 
                 $(".ajax").hide();
             }
         });
@@ -209,7 +213,7 @@ $(document).ready(function(){
         }
 
         //Кноппка submit
-        submitButtonEnabled = submitButtonEnabled.and(checkboxFilled);
+        submitButtonEnabled = submitButtonEnabled.and(checkboxFilled).and(submitAvailable);
         submitButtonEnabled.onValue(function(e){
             if(e){
                 $("#submit").show();    
