@@ -86,7 +86,7 @@ $(document).ready(function(){
         if(percentage){
             $("#progressBar").show();
         }else{          
-            $("#progressBar").hide();
+              $("#progressBar").hide();
         }
 
         console.log(person);
@@ -119,7 +119,10 @@ $(document).ready(function(){
             inputs = [], 
             inputsEntered = [], 
             inputsReady = [],
-            radioButtons = [];
+            radioButtons = [],
+            inputsAvailabilityResponse = [],
+            inputsAvailabilityRequest = [],
+            inputAvailabale = [];
 
         var submitButtonEnabled, 
             professions = {};
@@ -133,6 +136,7 @@ $(document).ready(function(){
         for(var i=0;i<globalInputs.length;i++){
             var catr = $(globalInputs[i]).attr("name");
             inputs.push(textFieldValue($("#" + catr)));
+
             inputsEntered[i] = inputs[i].toProperty().map(nonEmpty);     
             inputsReady[i] = inputs[i].map(validate).onValue(collect);
 
@@ -143,6 +147,34 @@ $(document).ready(function(){
             }
         }
 
+        //Ajax для инпута номер 0 (оно же "name")
+        inputsAvailabilityRequest[0] = inputs[0].toProperty().changes().filter(nonEmpty).skipDuplicates().throttle(300)
+            .map(function(user){
+                return { 
+                    url : "check.php",
+                    type: "post",
+                    dataType: "text",
+                    data: ({"field" : user.target.attr("name"), "value" : user.value})
+                }
+            });
+        inputsAvailabilityResponse[0] = inputsAvailabilityRequest[0].ajax();
+        inputAvailabale[0] = inputsAvailabilityResponse[0].toProperty("start");
+
+        inputAvailabale[0].onValue(function(x){
+            if(x=="start"){
+                $(".ajax").hide();
+            } else 
+            if(x==0){
+                $(".ajax").css({
+                    "display":"inline-block",
+                    "background-color":"#70CA33"});
+            } else {
+                $(".ajax").css({
+                    "display":"inline-block",
+                    "background-color":"#AE4A43"});
+            }
+        });
+        
 
         //источник данных радиобаттонов
         var radioButtonsObject = function() {

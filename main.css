@@ -12,10 +12,18 @@ form .control {
 }
 form .control .cgroup {
   display: inline-block;
-  width: 350px;
-}
-form .control .cgroup:nth-child(2n) {
   width: 100px;
+}
+form .control .ajax {
+  display: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 10px;
+  border: solid 2px #EBCDAE;
+  background-color: #FCB0AE;
+}
+form .control .cgroup:nth-child(3n-2) {
+  width: 320px;
 }
 form .control .hided {
   display: none;
