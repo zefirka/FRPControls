@@ -2,8 +2,13 @@ $(document).ready(function(){
 
     //  Здесь мы будем хранить введенные данные, чтобы в дальнейшем пользоваться ajax-запросами
     var person = {
-        professions : {}
+        username : "",
+        password : "",
+        email : "",
+        shape : "",
+        services : {}
     }
+
 
     //Инициализируем функционал кнопки "скрыть"
     initHide();
@@ -172,12 +177,6 @@ $(document).ready(function(){
                 $(".ajax").css({
                     "display":"inline-block",
                     "background-color":"#AE4A43"});
-            }
-        });
-
-        ajaxVisible = inputsEntered[0].onValue(function(x){
-            if(!x){
-                $(".ajax").hide();
             }
         });
 

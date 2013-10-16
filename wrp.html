@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="height=device-width, initial-scale=1.0">
+    
+    <title>bacon.js test</title>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/Bacon.js"></script>
+    <script type="text/javascript" src="assets/js/Bacon.UI.js"></script>
+    <script type="text/javascript" src="assets/js/main2.js"></script>
+    <link rel="stylesheet" type="text/css" href="main2.css">   
+  </head>
+<body>
+
+<form>
+  <div class="control" for="data">
+    <input type="text" name="username" id="username">
+    <label for="username">Юзернейм</label>
+  </div>
+  
+  <div class="control" for="data">
+    <input type="text" name="password" id="password">
+    <label for="password">Пароль</label>
+  </div>
+  
+  <div class="control" for="data">
+    <input type="text" name="email" id="email">
+    <span class="hided">Скрыто</span>
+    <label for="email">Email</label>
+    <input type="checkbox" for="email" class="hide">
+    <label for="hide">Скрыть</label>
+  </div>
+  
+  <div class="control" for="data">
+    <div class="cgroup">
+      <input type="checkbox" name="service1" class="service">
+      <label>Космический десант</label> <br>
+      
+        <input type="checkbox" name="service2" class="service">
+      <label>Шаолиньское кунг-фу</label> <br>
+      
+        <input type="checkbox" name="service3" class="service">
+      <label>Человеческие жертвоприношения</label> <br>
+      
+        <input type="checkbox" name="service4" class="service">
+      <label>500 тайтлов аниме</label>
+    </div>
+    <div class="cgroup">
+      <label class="glabel"> Услуги </label>
+    </div>
+  </div>
+
+  <div class="control" for="data">
+      <div class="cgroup">
+          <input type = "radio"
+               name = "shape"
+               id = "square"
+               value = "square" />
+          <label for="square">Квадратунг</label>
+        
+      <input type = "radio"
+               name = "shape"
+               id = "circle"
+               value = "circle" />
+          <label for="circle">Кружочекс</label>
+
+      <input type = "radio"
+               name = "shape"
+               id = "triangle"
+               value = "triangle" />
+          <label for="triangle">Треуголлинг</label>
+      </div>
+      <label class="glabel"> Форма </label>
+   </div>
+   
+   <div id="progressBar">
+      <div id="progressReady"></div>
+   </div>
+
+   <button id="submit">Отправить</button>
+</form>
+
+</body>
+
+</html>

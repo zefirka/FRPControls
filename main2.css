@@ -8,24 +8,19 @@ form .control {
 }
 form .control .cgroup {
   display: inline-block;
+  width: 280px;
 }
 form .control .ajax {
   display: none;
   width: 12px;
   height: 12px;
   border-radius: 10px;
-  border: solid 2px #748864;
-}
-form .control .cgroup:nth-child(3n-2) {
-  width: 320px;
+  border: solid 2px #EBCDAE;
+  background-color: #FCB0AE;
 }
 form .control .forajax {
   display: inline-block;
   width: 40px;
-}
-form .control .fin40 {
-  display: inline-block;
-  width: 280px;
 }
 form .control .hided {
   display: none;
@@ -33,9 +28,6 @@ form .control .hided {
 }
 form .control:nth-child(2n) {
   background-color: #EEEEEE;
-}
-form .specbox {
-  display: inline-block;
 }
 form #progressBar {
   display: none;
@@ -52,6 +44,10 @@ form #progressBar #progressReady {
 }
 form #submit {
   display: none;
+}
+form .glabel {
+  margin-left: 30px;
+  font-size: 20px;
 }
 input[type="text"] {
   border: solid 2px #4D5E83;
