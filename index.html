@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="height=device-width, initial-scale=1.0">
+    
+    <title>bacon.js test</title>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/Bacon.js"></script>
+    <script type="text/javascript" src="assets/js/Bacon.UI.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">   
+  </head>
+<body>
+
+<main>
+  <form>
+    <div class="control">
+      <div class="cgroup">
+        <input type="text" name="name" id="name" for="control">
+        <label>Имя</label>
+        <span class="hided">Скрыто</span>
+      </div>
+      <div class="cgroup">
+        <input type="checkbox" value="0" name="name" for="name" class="hide">
+        <label>Скрыть</label>
+      </div>
+    </div>
+
+    <div class="control">
+      <div class="cgroup">
+        <input type="text" name="workplace" id="workplace" for="control">
+        <label>Место работы</label>
+        <span class="hided">Скрыто</span>
+      </div>
+      <div class="cgroup">
+        <input type="checkbox" value="0" name="workplace" for="workplace" class="hide">
+        <label>Скрыть</label>
+      </div>
+    </div>
+  
+
+    <div class="control">
+      <div class="cgroup">
+        <input type="text" name="salary" id="salary" for="control">
+        <label>Зарплата</label>
+        <span class="hided">Скрыто</span>
+      </div>
+      <div class="cgroup">
+        <input type="checkbox" value="0" name="salary" for="salary" class="hide">
+        <label>Скрыть</label>
+      </div>
+    </div>
+
+    <div class="control">
+      <div class="cgroup">
+        <input type="text" name="requestSalary" id="requestSalary" for="control">
+        <label>Ожидаемая зарплата</label>
+        <span class="hided">Скрыто</span>        
+      </div>
+      <div class="cgroup">
+        <input type="checkbox" value="0" name="requestSalary"for="request-salary" class="hide">
+        <label>Скрыть</label>
+      </div>
+    </div>
+
+    <div class="control">
+      <div class="cgroup">
+        <input type="text" name="exp" id="exp" for="control">
+        <label>Опыт</label>
+      </div>
+    </div>
+
+    <div class="control">
+      <div class="cgroup">
+        <input type="text" name="robr" id="robr" for="control">
+        <label>Дополнительная штучка</label>
+      </div>
+    </div>
+
+    <div class="control">
+      <div class="cgroup">
+        <input type="text" name="emission" id="emission" for="control">
+        <label>Эмиссия</label>
+        <span class="hided">Скрыто</span>        
+      </div>
+      <div class="cgroup">
+        <input type="checkbox" value="0" name="emission" for="emission" class="hide">
+        <label>Скрыть</label>
+      </div>
+    </div>
+
+    <div class="control">
+      <div class="cgroup">
+        <input type="text" name="test4" id="test4" for="control">
+        <label>Сегодня мы с тобой тестуем!</label>
+      </div>
+    </div>
+
+    <div class="control">
+      <div class="cgroup">
+        <span id="specCounts"></span>
+        <label>Специализациии</label>
+      </div>
+
+      <div class="specbox" for="control">
+        <input type="checkbox" name="prof1" class="spec"><label id="prof1" class="prof1">Космический десант</label><br>
+        <input type="checkbox" name="prof2" class="spec"><label id="prof2" class="prof2">Шаман третьего разряда</label><br>
+        <input type="checkbox" name="prof3" class="spec"><label id="prof3" class="prof3">Шаолиньское кунг-фу</label><br>
+        <input type="checkbox" name="prof4" class="spec"><label id="prof4" class="prof4">Почетный академик РАН</label><br>
+        <input type="checkbox" name="prof5" class="spec"><label id="prof5" class="prof5">Абракадарба</label>
+        <hr>
+        <input type="checkbox" name="prof6" class="spec"><label id="prof6" class="prof6">500+ тайтлов аниме</label><br>
+        <input type="checkbox" name="prof7" class="spec"><label id="prof7" class="prof7">Альфа и омега</label><br>
+        <input type="checkbox" name="prof8" class="spec"><label id="prof8" class="prof8">Греческий язык</label>
+      </div>
+
+    </div>
+
+    <div class="control">
+      <div class="cgroup">
+        <span id="specCounts"></span>
+        <label>Радиобаттоны</label>
+      </div>
+      <div class="specbox" for="control">
+        <input type = "radio"
+               name = "radBtn"
+               id = "aplhaBtn"
+               checked = "checked" />
+        <label for = "aplhaBtn">альфа</label>
+        
+        <input type = "radio"
+               name = "radBtn"
+               id = "betta" />
+        <label for = "betta">бетта</label>
+
+        <input type = "radio"
+               name = "radBtn"
+               id = "gamma" />
+        <label for = "gamma">гамма</label>
+      </div>
+    </div>
+
+    <div id="progressBar">
+      <div id="progressReady"></div>
+    </div>
+
+    <button id="submit">Отправить</button>
+
+  </form>
+</main>
+
+</body>
+
+</html>

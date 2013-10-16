@@ -1,0 +1,68 @@
+body{
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+}
+
+
+form{
+
+    input:disabled{
+        background-color:gray;
+        border-color: gray;
+    }
+
+    .control{
+        padding: 5px 3px;
+        background-color: #CCCCCC;
+        
+        .cgroup{
+            display: inline-block;
+            width:350px;
+        }
+
+        .cgroup:nth-child(2n){
+            width:100px;
+        }
+
+        .hided{
+            display: none;
+            color: red;
+        }
+    }
+
+    .control:nth-child(2n){
+        background-color: #EEEEEE;
+    }
+
+    .specbox{
+        display: inline-block;
+    }
+
+    #progressBar{
+        display: none;
+        margin: 20px 10px;
+        width:100px;
+        height: 15px;
+        border: solid 2px gray;
+        background-color: #EEEEEE;
+        #progressReady{
+            width: 0px;
+            height: 15px;
+            background-color: green;
+        }
+    }
+
+    #submit{
+        display: none;
+    }
+
+}
+
+input[type="text"]{
+    border: solid 2px #4D5E83;
+    background-color: #ACB3C2;
+    width:140px;
+    height: 20px;
+
+    color: white;
+}
