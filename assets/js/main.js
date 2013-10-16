@@ -22,10 +22,13 @@ $(document).ready(function(){
         return textField.asEventStream("keyup").map(value)
     }
 
-    function nonEmpty(x){return x.value.length > 0}
+    function nonEmpty(x){
+        return x.value.length > 0
+    }
 
     function validate(x){
-        if($(x.target).attr("type")=="checkbox"){
+        var type = $(x.target).attr("type");
+        if(type=="checkbox"){
             var pos =  $(x.target).prop("checked"); 
             if(pos){
                 person.professions[$(x.target).attr("name")] = "true";
@@ -36,9 +39,14 @@ $(document).ready(function(){
                 }
                 return {field: "profession" , value : person.professions};
             }
-        } else {
-            return {field : x.target.attr("name"), value : x.value};}
+        } else
+        if(type=="radio"){
+            return {field : $(x.target).attr("name"), value : $("[for='"+$(x.target).attr("id")+"']", $(x.target).parent()).text()}
         }
+        else {
+            return {field : x.target.attr("name"), value : x.value};
+        }
+    }
 
     function consolidate(x){
         var e = "", c =0;
@@ -71,8 +79,8 @@ $(document).ready(function(){
             delete person[e.field];
         }
 
-        var count = Object.keys(person).length;
-        var percentage = count/$("[for='control']")  .length * 100 >> 0;
+        var count = Object.keys(person).length-1;
+        var percentage = count/$("[for='control']").length * 100 >> 0;
         $("#progressReady").css("width",percentage+"%");
 
         if(percentage){
@@ -110,16 +118,18 @@ $(document).ready(function(){
         var globalInputs = $("input[type='text']"), 
             inputs = [], 
             inputsEntered = [], 
-            inputsReady = [];
+            inputsReady = [],
+            radioButtons = [];
 
         var submitButtonEnabled, 
             professions = {};
 
+        //Чекбоксы
         var professionsCollect = $(".spec").asEventStream("change").map(validate).map(consolidate);
         var checkboxFilled = professionsCollect.map(nonEmpty);
-
         professionsCollect.onValue(collect);
 
+        //Инпуты
         for(var i=0;i<globalInputs.length;i++){
             var catr = $(globalInputs[i]).attr("name");
             inputs.push(textFieldValue($("#" + catr)));
@@ -133,6 +143,34 @@ $(document).ready(function(){
             }
         }
 
+
+        //источник данных радиобаттонов
+        var radioButtonsObject = function() {
+            var btns =  $("input[type='radio']");
+            var result = [];
+            var last = "";
+            for(var i = 0; i <btns.length; i++){
+                var name = $(btns[i]).attr("name");
+
+                if( name != last){
+                    result.push(name);
+                }
+                last = name;
+            }
+            return result;
+        }
+
+        var radioTmp = radioButtonsObject(), radioButtonsCheked = [];
+
+        for(var i=0;i<radioTmp.length;i++){
+            radioButtons[i] = $("input[name='"+radioTmp[i]+"']").asEventStream("change").map(validate);
+            radioButtonsCheked[i] = radioButtons[i].map(nonEmpty);
+            radioButtons[i].onValue(collect);         
+      
+            submitButtonEnabled = submitButtonEnabled.and(radioButtonsCheked[i]);
+        }
+
+        //Кноппка submit
         submitButtonEnabled = submitButtonEnabled.and(checkboxFilled);
         submitButtonEnabled.onValue(function(e){
             if(e){
